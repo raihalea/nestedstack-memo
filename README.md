@@ -7,16 +7,16 @@ graph TD
   A --> C[Stack2]
   A --> D[Stack3]
 
-  B --> E[NestedStack1 (Child1)]
-  B --> F[NestedStack2 (Child1ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF)]
+  B --> E[NestedStack1_Child1]
+  B --> F[NestedStack2_Child1_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF]
 
-  C --> G[NestedStack1 (Child2)]
-  C --> H[NestedStack2 (Child2ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF)]
+  C --> G[NestedStack1_Child2]
+  C --> H[NestedStack2_Child2_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF]
 
   D --> I[SQS]
 
-  E --> J[SQS (Child1 SQS)]
-  F --> K[SQS (Child1ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF SQS)]
-  G --> L[SQS (Child2 SQS)]
-  H --> M[SQS (Child2ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF SQS)]
-  ~~~
+  E --> J[SQS_Child1]
+  F --> K[SQS_Child1_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF]
+  G --> L[SQS_Child2]
+  H --> M[SQS_Child2_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF]
+  ```
