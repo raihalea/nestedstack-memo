@@ -13,7 +13,7 @@ graph TD
   C --> E
   C --> F
 
+  D --> I
   E --> I[SQS]
   F --> I
-  D --> I
 ```
