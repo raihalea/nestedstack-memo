@@ -5,18 +5,13 @@
 graph TD
   A[App] --> B[Stack1]
   A --> C[Stack2]
-  A --> D[Stack3]
 
-  B --> E[NestedStack1_Child1]
-  B --> F[NestedStack2_Child1_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF]
+  B --> E[NestedStack1]
+  B --> F[NestedStack2]
 
-  C --> G[NestedStack1_Child2]
-  C --> H[NestedStack2_Child2_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF]
+  C --> E
+  C --> F
 
-  D --> I[SQS]
-
-  E --> J[SQS_Child1]
-  F --> K[SQS_Child1_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF]
-  G --> L[SQS_Child2]
-  H --> M[SQS_Child2_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF]
+  E --> I[SQS]
+  F --> F
   ```
