@@ -13,5 +13,5 @@ graph TD
   C --> F
 
   E --> I[SQS]
-  F --> F
+  F --> I
   ```
