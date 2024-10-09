@@ -20,7 +20,7 @@ class Stack2 extends cdk.Stack {
     new NestedStack2(this, "Child2ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF");  }
 }
 
-class Stack3 extends cdk.Stack {
+class Stack0 extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -43,6 +43,6 @@ class NestedStack2 extends cdk.NestedStack {
 }
 
 const app = new cdk.App();
+new Stack0(app, 'Sample')
 new Stack1(app, 'Parent');
 new Stack2(app, 'ParentABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF');
-new Stack3(app, 'Sample')

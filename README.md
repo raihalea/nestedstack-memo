@@ -5,7 +5,7 @@
 graph TD
   A[App] --> B[Stack1<br>Parent]
   A --> C[Stack2<br>ParentABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF]
-  A --> D[Stack3<br>Sample]
+  A --> D[Stack0<br>Sample]
 
   D --> I[SQS]
 
@@ -18,3 +18,13 @@ graph TD
   E --> I
   F --> I
 ```
+
+## memo
+
+| Stack論理ID | NestedStack論理ID | SQSリソース名 |
+| ---- | ---- | ---- |
+| Sample | - | Sample-SQSC7E1FD76-OMalN6txsi4r |
+| Parent | Child1 | Parent-Child1NestedStackChild1NestedStackResource1C0E05-SQSC7E1FD76-K4ovxTYKtpXO |
+| Parent | Child1ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF | Parent-Child1ABCDEFGHIJKLMNOPQRST-SQSABCDEFGHIJKLMNOPQRSTUVWXYZABCD-Knl9NQxQZgr8 |
+| ParentABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF | Child2 | ParentABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF-Child2NestedStac-SQSC7E1FD76-Ggi1PZj7OyDH |
+| ParentABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF | Child2ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF | ParentABCDEFGHIJKLMNOPQRSTUVWXYZA-SQSABCDEFGHIJKLMNOPQRSTUVWXYZABCD-Jc2t2SeamExu |
