@@ -1,14 +1,22 @@
-# Welcome to your CDK TypeScript project
+# AWS CDK NestedStackのメモ
 
-This is a blank project for CDK development with TypeScript.
+## memo
+```mermaid
+graph TD
+  A[App] --> B[Stack1]
+  A --> C[Stack2]
+  A --> D[Stack3]
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+  B --> E[NestedStack1 (Child1)]
+  B --> F[NestedStack2 (Child1ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF)]
 
-## Useful commands
+  C --> G[NestedStack1 (Child2)]
+  C --> H[NestedStack2 (Child2ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF)]
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+  D --> I[SQS]
+
+  E --> J[SQS (Child1 SQS)]
+  F --> K[SQS (Child1ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF SQS)]
+  G --> L[SQS (Child2 SQS)]
+  H --> M[SQS (Child2ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF SQS)]
+  ~~~

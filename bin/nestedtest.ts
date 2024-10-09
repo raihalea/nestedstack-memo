@@ -1,21 +1,48 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
+import { Construct } from "constructs";
 import * as cdk from 'aws-cdk-lib';
-import { NestedtestStack } from '../lib/nestedtest-stack';
+import * as sqs from "aws-cdk-lib/aws-sqs";
+
+class Stack1 extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    new NestedStack1(this, "Child1");
+    new NestedStack2(this, "Child1ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF");
+  }
+}
+class Stack2 extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    new NestedStack1(this, "Child2");
+    new NestedStack2(this, "Child2ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF");  }
+}
+
+class Stack3 extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+    super(scope, id, props);
+
+    const queue = new sqs.Queue(this, "SQS");  }
+}
+
+class NestedStack1 extends cdk.NestedStack {
+  constructor(scope: Construct, id: string, props?: cdk.NestedStackProps) {
+    super(scope, id, props);
+    
+    const queue = new sqs.Queue(this, "SQS");
+  }
+}
+class NestedStack2 extends cdk.NestedStack {
+  constructor(scope: Construct, id: string, props?: cdk.NestedStackProps) {
+    super(scope, id, props);
+    
+    const queue = new sqs.Queue(this, "SQSABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF");
+  }
+}
 
 const app = new cdk.App();
-new NestedtestStack(app, 'NestedtestStack', {
-  /* If you don't specify 'env', this stack will be environment-agnostic.
-   * Account/Region-dependent features and context lookups will not work,
-   * but a single synthesized template can be deployed anywhere. */
-
-  /* Uncomment the next line to specialize this stack for the AWS Account
-   * and Region that are implied by the current CLI configuration. */
-  // env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
-
-  /* Uncomment the next line if you know exactly what Account and Region you
-   * want to deploy the stack to. */
-  // env: { account: '123456789012', region: 'us-east-1' },
-
-  /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
-});
+new Stack1(app, 'Parent');
+new Stack2(app, 'ParentABCDEFGHIJKLMNOPQRSTUVWXYZABCDEF');
+new Stack3(app, 'Sample')
