@@ -7,13 +7,14 @@ graph TD
   A --> C[Stack2]
   A --> D[Stack3]
 
+  D --> I[SQS]
+
   B --> E[NestedStack1]
   B --> F[NestedStack2]
 
   C --> E
   C --> F
 
-  D --> I
-  E --> I[SQS]
+  E --> I
   F --> I
 ```
